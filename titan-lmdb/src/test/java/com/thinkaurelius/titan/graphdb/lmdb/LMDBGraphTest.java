@@ -1,4 +1,4 @@
-package com.thinkaurelius.titan.graphdb.berkeleyje;
+package com.thinkaurelius.titan.graphdb.lmdb;
 
 import com.thinkaurelius.titan.core.TitanException;
 import com.thinkaurelius.titan.core.util.TitanCleanup;
@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
-import com.thinkaurelius.titan.BerkeleyStorageSetup;
+import com.thinkaurelius.titan.LMDBStorageSetup;
 import com.thinkaurelius.titan.diskstorage.berkeleyje.BerkeleyJEStoreManager;
 import com.thinkaurelius.titan.diskstorage.berkeleyje.BerkeleyJEStoreManager.IsolationLevel;
 import com.thinkaurelius.titan.diskstorage.configuration.ConfigElement;
@@ -23,17 +23,17 @@ import java.time.temporal.ChronoUnit;
 
 import static org.junit.Assert.*;
 
-public class BerkeleyGraphTest extends TitanGraphTest {
+public class LMDBGraphTest extends TitanGraphTest {
 
     @Rule
     public TestName methodNameRule = new TestName();
 
     private static final Logger log =
-            LoggerFactory.getLogger(BerkeleyGraphTest.class);
+            LoggerFactory.getLogger(LMDBGraphTest.class);
 
     @Override
     public WriteConfiguration getConfiguration() {
-        ModifiableConfiguration mcfg = BerkeleyStorageSetup.getBerkeleyJEConfiguration();
+        ModifiableConfiguration mcfg = LMDBStorageSetup.getLMDBConfiguration();
         String methodName = methodNameRule.getMethodName();
         if (methodName.equals("testConsistencyEnforcement")) {
             IsolationLevel iso = IsolationLevel.SERIALIZABLE;

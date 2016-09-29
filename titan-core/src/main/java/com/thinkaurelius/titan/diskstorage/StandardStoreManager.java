@@ -15,7 +15,8 @@ public enum StandardStoreManager {
     CASSANDRA_ASTYANAX("com.thinkaurelius.titan.diskstorage.cassandra.astyanax.AstyanaxStoreManager", ImmutableList.of("cassandra", "astyanax")),
     CASSANDRA_EMBEDDED("com.thinkaurelius.titan.diskstorage.cassandra.embedded.CassandraEmbeddedStoreManager", "embeddedcassandra"),
     HBASE("com.thinkaurelius.titan.diskstorage.hbase.HBaseStoreManager", "hbase"),
-    IN_MEMORY("com.thinkaurelius.titan.diskstorage.keycolumnvalue.inmemory.InMemoryStoreManager", "inmemory");
+    IN_MEMORY("com.thinkaurelius.titan.diskstorage.keycolumnvalue.inmemory.InMemoryStoreManager", "inmemory"),
+    LMDB("com.thinkaurelius.titan.diskstorage.lmdb.LMDBStoreManager", "lmdb");
 
     private final String managerClass;
     private final ImmutableList<String> shorthands;
